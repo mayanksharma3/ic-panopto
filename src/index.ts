@@ -56,7 +56,8 @@ const run = async () => {
     fs.mkdirSync(conf.getFolderPath(), {recursive: true});
 
     if (!argv.video_url) {
-        console.log(chalk.red("Please specify a video to download!"))
+        console.log(chalk.red("Please specify a video to download!"));
+        parser.print_help();
         return;
     }
 
