@@ -96,6 +96,7 @@ const run = async () => {
                         bar.increment()
                     } else if (a.startsWith("All segments received")) {
                         bar.stop()
+                        console.log(chalk.greenBright("Successfully downloaded video!"))
                         const openFolderResponse = await promptOpenFolder()
                         if (openFolderResponse.openFolder) {
                             await open(videoPath)
