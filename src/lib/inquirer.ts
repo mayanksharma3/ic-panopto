@@ -59,7 +59,7 @@ export async function promptOpenFolder() {
         {
             name: 'openFolder',
             type: 'confirm',
-            default: true,
+            default: false,
             message: 'Open Video?'
         }
     ];
