@@ -1,6 +1,6 @@
 {
-  "name": "icpanopto",
-  "version": "0.0.1",
+  "name": "ic-panopto",
+  "version": "0.0.2",
   "description": "CLI for downloading videos from Imperial's Panopto",
   "main": "./dist/index.js",
   "keywords": [
