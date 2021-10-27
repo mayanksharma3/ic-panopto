@@ -62,16 +62,24 @@ const run = async () => {
     }
 
     const spinner = ora('Opening Link...').start();
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({headless: false});
     const page = await browser.newPage();
     await page.goto(argv.video_url);
     spinner.stop()
     spinner.clear()
     const spinnerSignIn = ora("Link Opened. Signing in...").start();
-    await page.type('#username', credentials.username);
-    await page.type('#password', credentials.password);
-    await page.click('button[name="_eventId_proceed"]');
+    await page.waitForNetworkIdle()
+    await page.type('input[name="loginfmt"]', `${credentials.username}@ic.ac.uk`);
+    await page.click('#idSIButton9');
+    await page.waitForNetworkIdle()
+    await page.type('input[name="passwd"]', credentials.password);
+    await page.click('#idSIButton9');
     await page.waitForNavigation();
+    try {
+        await page.click('#idSIButton9');
+    } catch (e) {
+
+    }
     spinnerSignIn.stop()
     spinnerSignIn.clear()
     console.log("Downloading video...")

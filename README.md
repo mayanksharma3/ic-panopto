@@ -4,7 +4,7 @@
 
 
 ```shell
-npm install -g ic-panopto
+npm install -g icpanopto
 ```
 
 ### Usage
